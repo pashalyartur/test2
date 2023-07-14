@@ -1,0 +1,148 @@
+
+body{
+	background: #FFBC52;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.logo_text{
+	display: flex;
+	position: absolute;
+	color: #000;
+	text-shadow: 0px 9px 20px 0px rgba(0, 0, 0, 0.31);
+	font-family: Montserrat;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 900;
+	line-height: normal;
+	left: 630px;
+	top: 90px;
+	width: 250px;
+	text-decoration: none;
+}
+.logo_mt{
+	display: flex;
+	position: absolute;
+	color: #FFBC52;
+	font-family: Montserrat;
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	z-index: 3;
+	width: 80px;
+	height: 80px;
+	flex-shrink: 0;
+	left: 580px;
+	top: 100px;
+	text-decoration: none;
+}
+.logo_img{
+	display: flex;
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	flex-shrink: 0;
+	left: 575px;
+	top: 90px;
+	text-decoration: none;
+}
+
+.circle{
+	display: flex;
+	position: absolute;
+	height: 50px;
+	width: 50px;
+}
+
+.vhod_student{
+	display: flex;
+	position: absolute;
+	left: 550px;
+	top: 220px;
+}
+
+.vhod_prepod{
+	display: flex;
+	position: absolute;
+	left: 550px;
+	top: 320px;
+}
+
+.vhod_creat_test{
+	display: flex;
+	position: absolute;
+	left: 550px;
+	top: 420px;
+}
+
+.vhod_student2{
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	padding: 0 15px;
+	z-index: 3;
+	color: #000;
+	font-family: Montserrat;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	width: 290px;
+	height: 40px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.vhod_prepod2{
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	padding: 0 15px;
+	z-index: 3;
+	color: #000;
+	font-family: Montserrat;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	width: 290px;
+	height: 40px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.vhod_creat_test2{
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	padding: 0 15px;
+	z-index: 3;
+	color: #000;
+	font-family: Montserrat;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	width: 290px;
+	height: 40px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.rectangel{
+	display: flex;
+	position: absolute;
+	left: 520px;
+	top: 170px;
+}
+
+.square{
+	display: flex;
+	position: absolute;
+	height: 350px;
+	width: 350px;
+}
