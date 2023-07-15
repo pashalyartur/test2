@@ -33,6 +33,6 @@ class SignupForm(UserCreationForm):
         'placeholder': 'Repeat password',
         'class': 'text-center my-2 py-2 px-4 rounded-xl'
     }))
-    role = forms.ChoiceField(choices=(('student', 'Студент'), ('teacher', 'Преподователь'), ('test_autors','Создатель тестов')))
+
 
 

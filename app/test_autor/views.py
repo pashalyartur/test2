@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Test, Result, CorrectAnswer
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from .models import Test, Result
 
 
 def test_list(request):
@@ -35,3 +38,25 @@ def submit_test(request, test_id):
 def test_result(request, result_id):
     result = Result.objects.get(pk=result_id)
     return render(request, 'test_autor/test_result.html', {'result': result})
+
+def teacher(request):
+    tests = Test.objects.all()
+    return render(request, 'test_autor/test_list_teacher.html', {'tests': tests})
+
+def infa(request, test_id):
+    test = Test.objects.get(pk=test_id)
+    results = Result.objects.filter(test=test)
+    return render(request, 'test_autor/infa.html', {'test': test, 'results': results})
+
+
+
+def generate_test_results_html(request, test_id):
+    test = Test.objects.get(pk=test_id)
+    results = Result.objects.filter(test=test)
+    html = render_to_string('test_autor/teacher.html', {'test': test, 'results': results})
+    
+    response = HttpResponse(content_type='text/html')
+    response['Content-Disposition'] = f'attachment; filename="{test.title}_results.html"'
+    response.write(html)
+    
+    return response
