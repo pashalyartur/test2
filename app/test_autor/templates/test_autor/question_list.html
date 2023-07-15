@@ -1,0 +1,14 @@
+{% extends 'core/base.html'%}
+
+{%block title%}BAlDR CRM{%endblock%}
+
+{% block content %}
+<form action="{% url 'submit_answers' %}" method="post">
+    {% for question in questions %}
+        <h3>{{ question.question_text }}</h3>
+        <!-- Отображение других полей вопроса -->
+        <input type="checkbox" name="answer_{{ question.id }}" value="1">
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form> 
+{%endblock%}

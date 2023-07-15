@@ -1,47 +1,37 @@
-from django.shortcuts import render
-
 from django.shortcuts import render, redirect
-from .models import Articles
-from .forms import ArticlesForm
-from django.views.generic import DetailView, UpdateView , DeleteView
+from .models import Test, Result, CorrectAnswer
 
 
-def news_home(request):
-    news=Articles.objects.order_by('date')
-    return render(request, 'test_autor/news_home.html', {'news': news})
-
-class NewsDetailView(DetailView):
-    model = Articles
-    template_name = 'test_autor/details_view.html'
-    context_object_name = 'article'
-
-class NewsUpdateView(UpdateView):
-    model = Articles
-    template_name = 'test_autor/create.html'
-
-    form_class = ArticlesForm
-
-class NewsDeleteView(DeleteView):
-    model = Articles
-    success_url = '/news'
-    template_name = 'test_autor/news-delete.html'
+def test_list(request):
+    tests = Test.objects.all()
+    return render(request, 'test_autor/test_list.html', {'tests': tests})
 
 
-def create(request):
-    error = ''
+def test_detail(request, test_id):
+    test = Test.objects.get(pk=test_id)
+    return render(request, 'test_autor/test_detail.html', {'test': test})
+
+
+def submit_test(request, test_id):
     if request.method == 'POST':
-        form = ArticlesForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-        else:
-            error = 'Форма была неверной'
+        test = Test.objects.get(pk=test_id)
+        questions = test.question_set.all()
+        score = 0
 
-    form = ArticlesForm()
+        for question in questions:
+            selected_answers = request.POST.getlist(f'question_{question.id}')
+            correct_answers = CorrectAnswer.objects.filter(question=question)
 
-    data = {
-        'form': form,
-        'error': error
-    }
+            if set(selected_answers) == set(correct_answers.values_list('answer__answer_text', flat=True)):
+                score += 1
 
-    return render(request, 'test_autor/create.html', data)
+        result = Result(test=test, student_name=request.POST.get('student_name'), score=score)
+        result.save()
+
+        return redirect('test_result', result_id=result.id)
+    else:
+        return redirect('test_list')
+
+def test_result(request, result_id):
+    result = Result.objects.get(pk=result_id)
+    return render(request, 'test_autor/test_result.html', {'result': result})

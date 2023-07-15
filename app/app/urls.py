@@ -11,6 +11,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sign-up/', signup, name='signup'),
     path('log-in/', views.LoginView.as_view(template_name='userprofile/login.html', authentication_form=LoginForm), name='login'),
+    path('log-out/',views.LogoutView.as_view(),name='logout'),
     path('role/', role, name='role'),
-    path('news/', include('test_autor.urls')),
+    path('test_autor/', include('test_autor.urls')),
+
 ]

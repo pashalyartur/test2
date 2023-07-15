@@ -29,20 +29,24 @@ from django.contrib.auth.models import User, Group
   #  })
 
 
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
+from .models import Userprofile
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
 
         if form.is_valid():
             user = form.save()
-            userprofile = Userprofile.objects.create(user=user)
-            user.save()
+            
+            Userprofile.objects.create(user=user)
 
-            return redirect('/signup/')
-
+            return redirect('/log-in/')
     else:
-        form = SignupForm()
+        form = UserCreationForm()
 
-    return render(request,'userprofile/signup.html',{
-        'form': form 
+    return render(request, 'userprofile/signup.html', {
+        'form': form
     })

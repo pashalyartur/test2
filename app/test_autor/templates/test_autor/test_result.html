@@ -1,0 +1,11 @@
+{% extends 'core/base.html'%}
+
+{%block title%}BAlDR CRM{%endblock%}
+
+{% block content %}
+
+<h1>Test Result</h1>
+<p><strong>Тест:</strong> {{ result.test }}</p>
+<p><strong>Имя студента:</strong> {{ result.student_name }}</p>
+<p><strong>Результат:</strong> {{ result.score }} из {{question_set}}</p>
+{%endblock%}

@@ -29,6 +29,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+LOGIN_REDIRECT_URL = '/role/'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'index'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
