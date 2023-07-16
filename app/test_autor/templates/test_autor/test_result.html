@@ -4,9 +4,60 @@
 
 {% block content %}
 
-<h1>Test Result</h1>
-<p><strong>Тест:</strong> {{ result.test }}</p>
-<p><strong>Имя студента:</strong> {{ result.student_name }}</p>
-<p><strong>Результат:</strong> {{ result.score }} </p>
-<p><strong>Maximum Score:</strong> {{ e }}</p>
+<head>
+	<title>Мой одностраничный сайт</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style type="text/css">
+    body{
+      background-color: #FFBC52;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      text-align:center
+
+    }
+    .text1{
+      position: absolute;
+      display: flex;
+      left: 32px;
+      top: 190px;
+      width: 24px;
+      height: 45px;
+      flex-direction: column;
+      flex-shrink: 0;
+      color: #000;
+    
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 124.4%;
+      letter-spacing: 0.4px;
+    }
+    .text2{
+      position: absolute;
+      display: flex;
+      left: 32px;
+      top: 80px;
+      width: 570px;
+      height: 123px;
+      flex-direction: column;
+      flex-shrink: 0;
+      color: #000;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 129.4%;
+      letter-spacing: 2.25px;
+    }
+  </style>
+</head>
+
+<body>
+    <h1>Результаты теста</h1>
+    <p><strong>Тест:</strong> {{ result.test }}</p>
+    <p><strong>Имя студента:</strong> {{ result.student_name }}</p>
+    <p><strong>Результат:</strong> {{ result.score }} из {{r}}</p>
+
+
+</body>
 {%endblock%}

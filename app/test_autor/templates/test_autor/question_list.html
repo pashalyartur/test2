@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style type="text/css">
+        
     body{
         background-color: #FFBC52;
         margin: 0;
@@ -18,16 +19,16 @@
 
     </style>
 </head>
-<body>
+<body class="text-center py-6 px-6">
 
-<form action="{% url 'submit_answers' %}" method="post">
+    <form action="{% url 'submit_answers' %}" method="post">
     {% for question in questions %}
-        <h3>{{ question.question_text }}</h3>
-        <!-- Отображение других полей вопроса -->
-        <input type="checkbox" name="answer_{{ question.id }}" value="1">
-    {% endfor %}
-    <input type="submit" value="Submit">
-</form> 
+            <h3>{{ question.question_text }}</h3>
+            <!-- Отображение других полей вопроса -->
+            <input type="checkbox" name="answer_{{ question.id }}" value="1">
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form> 
 </body>
 </html>
 {%endblock%}

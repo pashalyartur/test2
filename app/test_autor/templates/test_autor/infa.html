@@ -1,20 +1,98 @@
+{% extends 'core/base.html'%}
+
+{%block title%}MY TEST{%endblock%}
+
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
+  <head>
+    <title>Мой одностраничный сайт</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+      body{
+        background-color: #FFBC52;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        text-align:center
+  
+      }
+      .text1{
+        position: absolute;
+        display: flex;
+        left: 32px;
+        top: 190px;
+        width: 24px;
+        height: 45px;
+        flex-direction: column;
+        flex-shrink: 0;
+        color: #000;
+        
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 124.4%;
+        letter-spacing: 0.4px;
+        text-align:center
+      }
+      .li{
+        position: relative;
+        display: flex;
+        left: 620px;
+        top: -80px;
+        width: 70px;
+        height: 123px;
+        flex-direction: column;
+        flex-shrink: 0;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 129.4%;
+        letter-spacing: 2.25px;
+        text-align:center
+      }
+      .text2{
+        position: absolute;
+        display: flex;
+        left: 32px;
+        top: 80px;
+        width: 570px;
+        height: 123px;
+        flex-direction: column;
+        flex-shrink: 0;
+        color: #000;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 129.4%;
+        letter-spacing: 2.25px;
+      }
+      .thead{
+        background-color: green;
+        text-align:center;
+      }
+      .tbody{
+        text-align:center;
+      }
+    </style>
+  </head>
+  
   <meta charset="utf-8">
-  <title>{{ test.title }} Results</title>
+  <title>{{ test.title }} Результаты</title>
 </head>
-<body>
-  <h1>{{ test.title }} Results</h1>
+<body class=".body">
+  <h1>{{ test.title }} Результаты</h1>
 
   <table>
-    <thead>
+    <thead class=".thead">
       <tr>
-        <th>Student Name</th>
-        <th>Score</th>
+        <th>Имя студента</th>
+        <th>Результат</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class=".tbody">
       {% for result in results %}
         <tr>
           <td>{{ result.student_name }}</td>
@@ -22,10 +100,11 @@
         </tr>
       {% empty %}
         <tr>
-          <td colspan="2">No results available.</td>
+          <td colspan="2">Нет результатов.</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 </body>
 </html>
+{%endblock%}
