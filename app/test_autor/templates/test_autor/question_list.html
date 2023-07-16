@@ -1,8 +1,25 @@
 {% extends 'core/base.html'%}
 
-{%block title%}BAlDR CRM{%endblock%}
+{%block title%}MY TEST{%endblock%}
 
 {% block content %}
+
+<html>
+<head>
+	<title>Мой одностраничный сайт</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+    body{
+        background-color: #FFBC52;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+    </style>
+</head>
+<body>
+
 <form action="{% url 'submit_answers' %}" method="post">
     {% for question in questions %}
         <h3>{{ question.question_text }}</h3>
@@ -11,4 +28,6 @@
     {% endfor %}
     <input type="submit" value="Submit">
 </form> 
+</body>
+</html>
 {%endblock%}
