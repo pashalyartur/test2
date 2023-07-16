@@ -5,3 +5,6 @@ def index(request):
 
 def role(request):
     return render(request,'userprofile/role.html')
+
+def about(request):
+    return render(request,'core/about.html')

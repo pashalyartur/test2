@@ -3,22 +3,193 @@
 {% block title %}Sign up{% endblock %}
 
 {% block content %} 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/vhod.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<title>Выбор</title>
+	<style type="text/css">
+		body{
+			background: #FF736B;
+			margin: 0;
+			font-family: 'Montserrat', sans-serif;
+		}
+		/*Логотип*/
+		.logo_text{
+			display: flex;
+			position: absolute;
+			color: #000;
+			text-shadow: 0px 9px 20px 0px rgba(0, 0, 0, 0.31);
+			font-family: Montserrat;
+			font-size: 35px;
+			font-style: normal;
+			font-weight: 900;
+			line-height: normal;
+			left: 630px;
+			top: 90px;
+			width: 250px;
+			text-decoration: none;
+		}
+		.logo_mt{
+			display: flex;
+			position: absolute;
+			color: #FFBC52;
+			font-family: Montserrat;
+			font-size: 25px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			z-index: 3;
+			width: 80px;
+			height: 80px;
+			flex-shrink: 0;
+			left: 580px;
+			top: 100px;
+			text-decoration: none;
+		}
+		.logo_img{
+			display: flex;
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			flex-shrink: 0;
+			left: 575px;
+			top: 90px;
+			text-decoration: none;
+		}
+
+		.circle{
+			display: flex;
+			position: absolute;
+			height: 50px;
+			width: 50px;
+		}
+		/*студент*/
+		.vhod_student{
+			display: flex;
+			position: absolute;
+			left: 550px;
+			top: 220px;
+		}
+
+		.vhod_student2{
+			display: flex;
+			position: absolute;
+			justify-content: center;
+			align-items: center;
+			padding: 0 15px;
+			z-index: 3;
+			color: #FFFFFF;
+			font-family: Montserrat;
+			font-size: 35px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			width: 290px;
+			height: 150px;
+		    outline: none;
+		    border-radius: 10px;
+		}
+		/*преподователь*/
+		.vhod_prepod{
+			display: flex;
+			position: absolute;
+            color: #FFFFFF;
+			left: 550px;
+			top: 320px;
+		}
+		.vhod_prepod2{
+            
+			display: flex;
+			position: absolute;
+			justify-content: center;
+			align-items: center;
+			padding: 0 15px;
+			z-index: 3;
+			color: #FFFFFF;
+			font-family: Montserrat;
+			font-size: 35px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			width: 300px;
+			height: 180px;
+		    outline: none;
+		    border-radius: 10px;
+		}
+
+        .kto{
+            
+			display: flex;
+			position: absolute;
+			justify-content: center;
+			align-items: center;
+			padding: 0 15px;
+			z-index: 3;
+			color: #FFFFFF;
+			font-family: Montserrat;
+			font-size: 15px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			width: 1400px;
+			height: 250px;
+		    outline: none;
+		    border-radius: 10px;
+		}
+		
+
+		/*задний фон регистрации*/
+		.rectangel{
+			display: flex;
+			position: absolute;
+			left: 520px;
+			top: 170px;
+		}
+
+		.square{
+			display: flex;
+			position: absolute;
+			height: 350px;
+			width: 350px;
+		}
+	</style>
 </head>
 <body>
-    <nav class="py-7 px-6 flex justify-between ">
-            <a href="{% url 'test_list' %}" class="py-2 px-4 bg-red-400 rounded-xl text-white">студент</a>
-            <a href="{% url 'teacher' %}" class="py-2 px-4 bg-red-400 rounded-xl text-white">учитель</a>
-        </div>  
-    </nav>
+<div class="container">
+	<div class="logo">
+		<div class="logo_text">MY TEST</div>
+		<div class="logo_mt">MT</div>
+		<div class="logo_img">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="circle" viewBox="0 0 16 16">
+  			<circle cx="8" cy="8" r="8"/>
+			</svg>
+		</div>
+	</div>
+
+	<div class="vhod">
+
+        <a class="kto">Кем вы являетесь?</a>
+
+		<a href="{% url 'test_list' %}" class="vhod_student">
+			<button class="vhod_student2">Студент</button>
+		</a>
+		<a href="{% url 'teacher' %}" class="vhod_prepod">
+			<button class="vhod_prepod2">Преподователь</button>
+		</a>
+        
+		
+
+		<div class="rectangel">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="square" viewBox="0 0 16 16">
+  				<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"/>
+			</svg>
+		</div>
+	</div>
+</div>
 </body>
 </html>
-
-{% endblock %}
+{%endblock%}
