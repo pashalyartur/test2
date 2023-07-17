@@ -15,5 +15,6 @@ urlpatterns = [
     path('about/',about, name='about'),
     path('role/', role, name='role'),
     path('test_autor/', include('test_autor.urls')),
+    
 
 ]

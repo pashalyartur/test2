@@ -28,7 +28,6 @@
         flex-direction: column;
         flex-shrink: 0;
         color: #000;
-        
         font-size: 30px;
         font-style: normal;
         font-weight: 900;
@@ -76,20 +75,34 @@
       .tbody{
         text-align:center;
       }
+      .table{
+        text-align:center;
+      }
+      .n-res{
+        text-align:center;
+        width: 570px;
+        height: 123px;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        color: #000;
+
+      }
     </style>
   </head>
   
   <meta charset="utf-8">
-  <title>{{ test.title }} Результаты</title>
+  <title>Результаты {{ test.title }} </title>
 </head>
 <body class=".body">
-  <h1>{{ test.title }} Результаты</h1>
-
-  <table>
+  <h1>Результаты тестирования под названием: {{ test.title }}</h1>
+  
+  <table class = "table">
     <thead class=".thead">
       <tr>
         <th>Имя студента</th>
         <th>Результат</th>
+
       </tr>
     </thead>
     <tbody class=".tbody">
@@ -97,14 +110,18 @@
         <tr>
           <td>{{ result.student_name }}</td>
           <td>{{ result.score }}</td>
+
+          
         </tr>
+        
       {% empty %}
-        <tr>
+        <tr class="n-res">
           <td colspan="2">Нет результатов.</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
+
 </body>
 </html>
 {%endblock%}

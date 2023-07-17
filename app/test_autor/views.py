@@ -19,6 +19,7 @@ def submit_test(request, test_id):
     if request.method == 'POST':
         test = Test.objects.get(pk=test_id)
         questions = test.question_set.all()
+        max_score = len(questions)
         score = 0
 
         for question in questions:
@@ -29,11 +30,13 @@ def submit_test(request, test_id):
                 score += 1
 
         result = Result(test=test, student_name=request.POST.get('student_name'), score=score)
+        result.max_score = max_score
         result.save()
 
         return redirect('test_result', result_id=result.id)
     else:
         return redirect('test_list')
+    
 
 def test_result(request, result_id):
     result = Result.objects.get(pk=result_id)
@@ -60,3 +63,9 @@ def generate_test_results_html(request, test_id):
     response.write(html)
     
     return response
+    response = HttpResponse(content_type='text/html')
+    response['Content-Disposition'] = f'attachment; filename="{test.title}_results.html"'
+    response.write(html)
+    
+    return response
+
