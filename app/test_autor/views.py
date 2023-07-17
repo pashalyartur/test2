@@ -19,7 +19,6 @@ def submit_test(request, test_id):
     if request.method == 'POST':
         test = Test.objects.get(pk=test_id)
         questions = test.question_set.all()
-        max_score = len(questions)
         score = 0
 
         for question in questions:
@@ -30,7 +29,6 @@ def submit_test(request, test_id):
                 score += 1
 
         result = Result(test=test, student_name=request.POST.get('student_name'), score=score)
-        result.max_score = max_score
         result.save()
 
         return redirect('test_result', result_id=result.id)
